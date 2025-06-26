@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ポートフォリオサイト</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3em;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 1em;
+      border-radius: 10px;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 2em auto;
+      padding: 1em;
+      text-align: center;
+    }
+
+    .profile-img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      margin-bottom: 1em;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      color: #333;
+      font-size: 1.5em;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #0077cc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2em 0;
+      background: #eee;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ようこそ、私のページへ！</h1>
+  </header>
+
+  <section>
+    <img class="profile-img" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=300&q=80" alt="プロフィール画像">
+    <h2>山田 太郎</h2>
+    <p>Webデベロッパー / デザイナー / コーヒー愛好家</p>
+
+    <div class="social-icons">
+      <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </section>
+
+  <section>
+    <h3>自己紹介</h3>
+    <p>
+      フロントエンドを中心に開発しています。ReactやVue.jsが得意で、最近はThree.jsで遊んでいます。シンプルなUIとクリーンなコードを大切にしています。
+    </p>
+  </section>
+
+  <footer>
+    &copy; 2025 Yamada Taro. All rights reserved.
+  </footer>
+
+  <script>
+    // スクロール時のフェードインアニメーション
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('section').forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          sec.style.opacity = 1;
+          sec.style.transform = 'translateY(0)';
+        }
+      });
+    });
+
+    // 初期状態
+    document.querySelectorAll('section').forEach(sec => {
+      sec.style.opacity = 0;
+      sec.style.transform = 'translateY(50px)';
+      sec.style.transition = 'all 0.6s ease-out';
+    });
+  </script>
+
+</body>
+</html>
