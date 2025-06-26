@@ -1,119 +1,161 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ポートフォリオサイト</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>湯上がり太郎公式サイト</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
   <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
       font-family: 'Noto Sans JP', sans-serif;
-      background: #f9f9f9;
-      color: #333;
+      background: #000;
+      color: #fff;
     }
 
     header {
-      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80');
+      height: 100vh;
+      background-image: url('https://images.unsplash.com/photo-1580428184406-3c75df66e1e4?auto=format&fit=crop&w=1600&q=80');
       background-size: cover;
       background-position: center;
-      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: white;
       text-align: center;
+      position: relative;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.5);
     }
 
     header h1 {
-      font-size: 3em;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 1em;
-      border-radius: 10px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3.5em;
+      z-index: 1;
+      color: #fff;
+      animation: fadeIn 2s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     section {
-      max-width: 800px;
-      margin: 2em auto;
-      padding: 1em;
+      max-width: 900px;
+      margin: 4em auto;
+      padding: 2em;
       text-align: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.7s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .profile-img {
       border-radius: 50%;
-      width: 150px;
-      height: 150px;
+      width: 160px;
+      height: 160px;
       object-fit: cover;
       margin-bottom: 1em;
+      border: 4px solid #fff;
     }
 
     .social-icons a {
-      margin: 0 10px;
-      color: #333;
-      font-size: 1.5em;
-      transition: color 0.3s;
+      margin: 0 12px;
+      color: #fff;
+      font-size: 1.8em;
+      transition: transform 0.3s, color 0.3s;
     }
 
     .social-icons a:hover {
-      color: #0077cc;
+      color: #00ffff;
+      transform: scale(1.2);
+    }
+
+    .dino-section {
+      background-image: url('https://images.unsplash.com/photo-1571771894821-ce9b6c11b08b?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      padding: 6em 2em;
+      color: #fff;
+    }
+
+    .dino-section h3 {
+      font-size: 2.2em;
+      margin-bottom: 0.5em;
     }
 
     footer {
       text-align: center;
       padding: 2em 0;
-      background: #eee;
+      background: #111;
       font-size: 0.9em;
+      color: #ccc;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>ようこそ、私のページへ！</h1>
+    <h1>湯上がり太郎 公式サイト</h1>
   </header>
 
-  <section>
-    <img class="profile-img" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=300&q=80" alt="プロフィール画像">
-    <h2>山田 太郎</h2>
-    <p>Webデベロッパー / デザイナー / コーヒー愛好家</p>
-
+  <section id="about">
+    <img class="profile-img" src="https://images.unsplash.com/photo-1616115088404-736c34a2e6fd?auto=format&fit=crop&w=300&q=80" alt="湯上がり太郎">
+    <h2>湯上がり太郎</h2>
+    <p>恐竜を愛し、宇宙を夢見る開発者。</p>
     <div class="social-icons">
       <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
       <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
   </section>
 
+  <section class="dino-section">
+    <h3>好きなもの：恐竜</h3>
+    <p>中生代の王者、ティラノサウルスから始まり、トリケラトプス、ブラキオサウルスまで。<br>
+    恐竜たちの姿を想像するだけで創作意欲が湧いてきます。</p>
+  </section>
+
   <section>
-    <h3>自己紹介</h3>
-    <p>
-      フロントエンドを中心に開発しています。ReactやVue.jsが得意で、最近はThree.jsで遊んでいます。シンプルなUIとクリーンなコードを大切にしています。
-    </p>
+    <h3>夢見るもの：宇宙</h3>
+    <p>星を見上げると、未知のコードと可能性を感じます。<br>
+    火星にWi-Fiが届いたら、最初にGit pushするのは僕です。</p>
   </section>
 
   <footer>
-    &copy; 2025 Yamada Taro. All rights reserved.
+    &copy; 2025 湯上がり太郎. All Rights Reserved.
   </footer>
 
   <script>
-    // スクロール時のフェードインアニメーション
-    window.addEventListener('scroll', () => {
-      document.querySelectorAll('section').forEach(sec => {
+    // スクロールでセクションをフェードイン
+    const sections = document.querySelectorAll('section');
+    const revealOnScroll = () => {
+      sections.forEach(sec => {
         const rect = sec.getBoundingClientRect();
         if (rect.top < window.innerHeight - 100) {
-          sec.style.opacity = 1;
-          sec.style.transform = 'translateY(0)';
+          sec.classList.add('visible');
         }
       });
-    });
-
-    // 初期状態
-    document.querySelectorAll('section').forEach(sec => {
-      sec.style.opacity = 0;
-      sec.style.transform = 'translateY(50px)';
-      sec.style.transition = 'all 0.6s ease-out';
-    });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
   </script>
 
 </body>
