@@ -3,62 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>湯上がり太郎公式サイト</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet"/>
+  <title>湯上がり太郎 公式サイト</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: 'Noto Sans JP', sans-serif;
-      background: #000;
-      color: #fff;
+      font-family: 'Inter', sans-serif;
+      background: #f9fafb;
+      color: #111;
     }
 
     header {
       height: 100vh;
-      background-image: url('https://images.unsplash.com/photo-1580428184406-3c75df66e1e4?auto=format&fit=crop&w=1600&q=80');
-      background-size: cover;
-      background-position: center;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      position: relative;
-    }
-
-    header::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0,0,0,0.5);
+      color: white;
     }
 
     header h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3.5em;
-      z-index: 1;
-      color: #fff;
-      animation: fadeIn 2s ease-out;
+      font-size: 3em;
+      margin: 0;
+      animation: fadeIn 1.5s ease;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+    header p {
+      font-size: 1.2em;
+      margin-top: 1em;
+      color: #ddd;
+    }
+
+    .btn {
+      margin-top: 2em;
+      padding: 0.8em 1.5em;
+      background: #00b894;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: #019875;
     }
 
     section {
-      max-width: 900px;
+      max-width: 960px;
       margin: 4em auto;
-      padding: 2em;
+      padding: 1.5em;
       text-align: center;
       opacity: 0;
       transform: translateY(50px);
-      transition: all 0.7s ease-out;
+      transition: all 0.6s ease-out;
     }
 
     section.visible {
@@ -66,47 +72,48 @@
       transform: translateY(0);
     }
 
-    .profile-img {
-      border-radius: 50%;
-      width: 160px;
-      height: 160px;
-      object-fit: cover;
-      margin-bottom: 1em;
-      border: 4px solid #fff;
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+      justify-content: center;
+      margin-top: 2em;
     }
 
-    .social-icons a {
-      margin: 0 12px;
-      color: #fff;
-      font-size: 1.8em;
-      transition: transform 0.3s, color 0.3s;
+    .feature-box {
+      background: white;
+      padding: 2em;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      flex: 1 1 280px;
+      transition: transform 0.3s ease;
     }
 
-    .social-icons a:hover {
-      color: #00ffff;
-      transform: scale(1.2);
+    .feature-box:hover {
+      transform: translateY(-8px);
     }
 
-    .dino-section {
-      background-image: url('https://images.unsplash.com/photo-1571771894821-ce9b6c11b08b?auto=format&fit=crop&w=1600&q=80');
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
-      padding: 6em 2em;
-      color: #fff;
-    }
-
-    .dino-section h3 {
-      font-size: 2.2em;
+    .feature-box i {
+      font-size: 2em;
       margin-bottom: 0.5em;
+      color: #00b894;
     }
 
     footer {
       text-align: center;
       padding: 2em 0;
       background: #111;
+      color: #aaa;
       font-size: 0.9em;
-      color: #ccc;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media(max-width: 600px) {
+      header h1 { font-size: 2em; }
     }
   </style>
 </head>
@@ -114,39 +121,50 @@
 
   <header>
     <h1>湯上がり太郎 公式サイト</h1>
+    <p>フロントエンド × UI/UX デザインで世界をより良く。</p>
+    <a class="btn" href="#about">もっと知る</a>
   </header>
 
   <section id="about">
-    <img class="profile-img" src="https://images.unsplash.com/photo-1616115088404-736c34a2e6fd?auto=format&fit=crop&w=300&q=80" alt="湯上がり太郎">
-    <h2>湯上がり太郎</h2>
-    <p>恐竜を愛し、宇宙を夢見る開発者。</p>
-    <div class="social-icons">
-      <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <h2>自己紹介</h2>
+    <p>はじめまして、湯上がり太郎と申します。ReactやNext.jsを中心に、心地よいユーザー体験を提供するWebアプリケーションの開発に取り組んでいます。</p>
+  </section>
+
+  <section id="features">
+    <h2>できること</h2>
+    <div class="features">
+      <div class="feature-box">
+        <i class="fas fa-laptop-code"></i>
+        <h3>Web開発</h3>
+        <p>モダンなHTML/CSS/JavaScriptで、パフォーマンスの高いサイトを構築します。</p>
+      </div>
+      <div class="feature-box">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>レスポンシブ対応</h3>
+        <p>スマホ・タブレットでも美しく使いやすいレイアウトを設計します。</p>
+      </div>
+      <div class="feature-box">
+        <i class="fas fa-paint-brush"></i>
+        <h3>UI/UXデザイン</h3>
+        <p>見た目だけでなく使いやすさも重視した設計を得意としています。</p>
+      </div>
     </div>
   </section>
 
-  <section class="dino-section">
-    <h3>好きなもの：恐竜</h3>
-    <p>中生代の王者、ティラノサウルスから始まり、トリケラトプス、ブラキオサウルスまで。<br>
-    恐竜たちの姿を想像するだけで創作意欲が湧いてきます。</p>
-  </section>
-
-  <section>
-    <h3>夢見るもの：宇宙</h3>
-    <p>星を見上げると、未知のコードと可能性を感じます。<br>
-    火星にWi-Fiが届いたら、最初にGit pushするのは僕です。</p>
+  <section id="contact">
+    <h2>お問い合わせ</h2>
+    <p>ご依頼・ご相談などお気軽にどうぞ。</p>
+    <a class="btn" href="mailto:example@example.com">メールする</a>
   </section>
 
   <footer>
-    &copy; 2025 湯上がり太郎. All Rights Reserved.
+    &copy; 2025 湯上がり太郎. All rights reserved.
   </footer>
 
   <script>
-    // スクロールでセクションをフェードイン
+    // スクロール時にsectionをフェードイン
     const sections = document.querySelectorAll('section');
-    const revealOnScroll = () => {
+    const onScroll = () => {
       sections.forEach(sec => {
         const rect = sec.getBoundingClientRect();
         if (rect.top < window.innerHeight - 100) {
@@ -154,8 +172,8 @@
         }
       });
     };
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('load', onScroll);
   </script>
 
 </body>
